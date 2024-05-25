@@ -174,7 +174,7 @@ class KiCad_Settings:
         GlobalVars = self.get_kicad_GlobalVars()
         if GlobalVars and "KICAD_3RD_PARTY" in GlobalVars:
             # print("KICAD_3RD_PARTY", GlobalVars["KICAD_3RD_PARTY"])
-            if not GlobalVars["KICAD_3RD_PARTY"] == LocalLibFolder:
+            if not Paht(GlobalVars["KICAD_3RD_PARTY"]).resolve() == Path(LocalLibFolder)/resolve():
                 msg += "\nKICAD_3RD_PARTY is defined as '"
                 msg += GlobalVars["KICAD_3RD_PARTY"]
                 msg += "' and not '" + LocalLibFolder + "'."
